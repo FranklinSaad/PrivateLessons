@@ -1,9 +1,5 @@
 @import url('https:/fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
-:root{
-    --primary-color: green
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +7,7 @@
 }
 
 body {
-    background-color: var(--primary-color);
+    background-color: rgb(22, 71, 22);
     font-family: 'Roboto, sans-serif';
 }
 
@@ -39,18 +35,18 @@ header {
 
 .links a.active {
     font-weight: bold;
-    color: green;
+    color: rgb(22, 71, 22);
 }
 
 .links a:hover {
-    color: green;
+    color: rgb(22, 71, 22);
 }
 
 .links a::after {
     content: "";
     width: 0;
     height: 2px;
-    background-color: green;
+    background-color: rgb(22, 71, 22);
     position: absolute;
     left: 0;
     bottom: -4px;
@@ -65,6 +61,7 @@ header {
     background-color: white;
     width: 800px;
     min-height: 400px;
+    border-radius: 16px;
 
     margin: 45px auto;
 
@@ -79,8 +76,10 @@ header {
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     animation-delay: 200ms;
-    
+}
 
+.avatar {
+    border-radius: 16px 0px 0px 16px;
 }
 
 @keyframes left {
@@ -90,9 +89,7 @@ header {
     to {
         opacity: 1;
     }
-
 }
-
 
 .details {
     padding: 32px;
@@ -102,7 +99,6 @@ header {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 16px 0;
 }
-
 
 .details h3,
 .details .item div:nth-child(1) {
@@ -122,12 +118,12 @@ header {
 .details h3 {
     text-transform: uppercase;
     font-weight: bold;
-    color: green;
+    color: rgb(22, 71, 22);
 }
 
 .details .item div:nth-child(2) span {
     padding: 8px 16px;
-    background-color: gray;
+    background-color:rgb(22, 71, 22);
     border-radius: 16px;
     color:white;
     margin-right: 4px;
@@ -136,4 +132,34 @@ header {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 12px;
+}
+
+select,
+input {
+    width: 100%;
+    outline: none;
+    color: #555;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input[type="radio"] {
+    width: initial;
+    margin-right: 4px;
+}
+
+input::placeholder {
+    font-size: 16px;
+    font-weight: normal;
+} 
+
+button[type="submit"] {
+    padding: 8px 32px;
+    background-color:rgb(22, 71, 22);
+    color: white;
+    border-radius: 4px;
+    margin-top: 32px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 16px;
 }

@@ -1,0 +1,14 @@
+{
+  "teachers": [
+    {
+      "id": 1,
+      "avatar_url": "http://google.com",
+      "name": "FRANKLIN PINHEIRO SAAD",
+      "birth": 751766400000,
+      "created_at": 1601174222513,
+      "escolaridade": "Ensino Superior Completo",
+      "type": "D",
+      "materias": "Direito contitucional, direto civil"
+    }
+  ]
+}
