@@ -22,11 +22,13 @@ exports.show = function(req, res) {
 }   
 
 exports.post = function (req, res) {
+
     const keys = Object.keys(req.body)
 
     for (key of keys) {
-        if (req.body[key] == "")
+        if (req.body[key] == "") {
             return res.send('Por favor, preencha todos os campos!')
+        }
     }
 
     let { avatar_url, name, birth, escolaridade, type, materias } = req.body
@@ -61,7 +63,7 @@ exports.edit = function(req, res) {
         return id == teacher.id
     })
 
-    if (!foundTeacher) return res.send('teacher not found!')
+    if (!foundTeacher) return res.send("Teacher not found!")
 
     const teacher = {
         ...foundTeacher,
@@ -71,4 +73,49 @@ exports.edit = function(req, res) {
     date(foundTeacher.birth)
 
     return res.render('teachers/edit', { teacher })
+}
+
+exports.put = function(req, res) {
+    const { id } = req.body
+    let index = 0
+
+    const foundTeacher = data.teachers.find(function(teacher, foundIndex) {
+        if (id == teacher.id) {
+            index = foundIndex
+            return true
+        }    
+    })
+
+    if (!foundTeacher) return res.send("Professor não encontrado!")
+
+    const teacher = {
+        ...foundTeacher,
+        ...req.body,
+        birth: Date.parse(req.body.birth)
+    }
+
+    data.teachers[index] = teacher
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
+        if(err) return res.send("Erro na escrita!")
+
+        return res.redirect(`/teachers/${id}`)
+    })
+
+}
+
+exports.delete = function(req, res) {
+    const { id } = req.body
+
+    const filteredTeachers = data.teachers.filter(function(teacher) {
+        return teacher.id != id 
+    })
+
+    data.teachers = filteredTeachers
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
+        if (err) return res.send("Erro!")
+
+        return res.redirect("/teachers")
+    })
 }
