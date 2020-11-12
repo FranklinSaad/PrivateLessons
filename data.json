@@ -1,22 +1,12 @@
 {
   "teachers": [
     {
-      "id": 1,
-      "avatar_url": "http://google.com",
-      "name": "FRANKLIN PINHEIRO SAAD",
-      "birth": 751766400000,
-      "created_at": 1601174222513,
-      "escolaridade": "Ensino Superior Completo",
-      "type": "D",
-      "materias": "Direito contitucional, direto civil"
-    },
-    {
-      "id": 4,
+      "id": "4",
       "avatar_url": "http://google.com",
       "name": "Pedro Paulo Nascimento",
       "birth": 636336000000,
       "escolaridade": "MC",
-      "type": "P",
+      "type": "D",
       "materias": "Química, Física",
       "created_at": 1605047663895
     },
